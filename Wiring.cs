@@ -198,14 +198,12 @@ namespace Terraria
 			{
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 1, 1);
-				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 440)
 			{
 				SoundEngine.PlaySound(28, i * 16 + 16, j * 16 + 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 3, 3);
-				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 136)
@@ -220,7 +218,6 @@ namespace Terraria
 				}
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 1, 1);
-				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 443)
@@ -258,7 +255,6 @@ namespace Terraria
 				num2 += j;
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(num, num2, 2, 2);
-				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 467)
@@ -276,7 +272,6 @@ namespace Terraria
 					num4 += j;
 					SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 					Wiring.TripWire(num3, num4, 2, 2);
-					Wiring.PixelBoxPass();
 					return;
 				}
 			}
@@ -311,7 +306,6 @@ namespace Terraria
 				WorldGen.TileFrame(num6, num7, false, false);
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(num6, num7, 2, 2);
-				Wiring.PixelBoxPass();
 			}
 		}
 
@@ -508,11 +502,11 @@ namespace Terraria
 			{
 				for (int l = top; l < top + height; l++)
 				{
-					Point16 back2 = new Point16(k, l);
+					Point16 back = new Point16(k, l);
 					Tile tile2 = Main.tile[k, l];
 					if (tile2 != null && tile2.wire2())
 					{
-						Wiring._wireList.PushBack(back2);
+						Wiring._wireList.PushBack(back);
 					}
 				}
 			}
@@ -540,11 +534,11 @@ namespace Terraria
 			{
 				for (int n = top; n < top + height; n++)
 				{
-					Point16 back3 = new Point16(m, n);
+					Point16 back = new Point16(m, n);
 					Tile tile3 = Main.tile[m, n];
 					if (tile3 != null && tile3.wire3())
 					{
-						Wiring._wireList.PushBack(back3);
+						Wiring._wireList.PushBack(back);
 					}
 				}
 			}
@@ -568,11 +562,11 @@ namespace Terraria
 			{
 				for (int num3 = top; num3 < top + height; num3++)
 				{
-					Point16 back4 = new Point16(num2, num3);
+					Point16 back = new Point16(num2, num3);
 					Tile tile4 = Main.tile[num2, num3];
 					if (tile4 != null && tile4.wire4())
 					{
-						Wiring._wireList.PushBack(back4);
+						Wiring._wireList.PushBack(back);
 					}
 				}
 			}
@@ -598,6 +592,7 @@ namespace Terraria
 					Wiring.Teleport();
 				}
 			}
+			Wiring.PixelBoxPass();
 			Wiring.LogicGatePass();
 		}
 
@@ -645,7 +640,6 @@ namespace Terraria
 								Wiring._GatesCurrent.Dequeue();
 							}
 						}
-						Wiring.PixelBoxPass();
 					}
 				}
 				Wiring._GatesDone.Clear();
