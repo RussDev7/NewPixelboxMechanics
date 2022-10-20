@@ -198,12 +198,14 @@ namespace Terraria
 			{
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 1, 1);
+				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 440)
 			{
 				SoundEngine.PlaySound(28, i * 16 + 16, j * 16 + 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 3, 3);
+				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 136)
@@ -218,6 +220,7 @@ namespace Terraria
 				}
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(i, j, 1, 1);
+				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 443)
@@ -255,6 +258,7 @@ namespace Terraria
 				num2 += j;
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(num, num2, 2, 2);
+				Wiring.PixelBoxPass();
 				return;
 			}
 			if (Main.tile[i, j].type == 467)
@@ -272,6 +276,7 @@ namespace Terraria
 					num4 += j;
 					SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 					Wiring.TripWire(num3, num4, 2, 2);
+					Wiring.PixelBoxPass();
 					return;
 				}
 			}
@@ -306,6 +311,7 @@ namespace Terraria
 				WorldGen.TileFrame(num6, num7, false, false);
 				SoundEngine.PlaySound(28, i * 16, j * 16, 0, 1f, 0f);
 				Wiring.TripWire(num6, num7, 2, 2);
+				Wiring.PixelBoxPass();
 			}
 		}
 
@@ -592,7 +598,6 @@ namespace Terraria
 					Wiring.Teleport();
 				}
 			}
-			Wiring.PixelBoxPass();
 			Wiring.LogicGatePass();
 		}
 
@@ -640,6 +645,7 @@ namespace Terraria
 								Wiring._GatesCurrent.Dequeue();
 							}
 						}
+						Wiring.PixelBoxPass();
 					}
 				}
 				Wiring._GatesDone.Clear();
